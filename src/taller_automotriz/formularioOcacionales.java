@@ -1,7 +1,7 @@
 
 package taller_automotriz;
 
-import Emtity.ocacionales;
+import Emtity.vehiculo;
 import javax.swing.JOptionPane;
 import modelo.ocacionalesModel;
 
@@ -208,7 +208,8 @@ ocacionalesModel om=new ocacionalesModel();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BregistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BregistarActionPerformed
-       ocacionales oc=new ocacionales(txtplaca.getText(),
+    /*
+        vehiculo oc=new vehiculo(txtplaca.getText(),
                txtreferencias.getText(), 
                Integer.parseInt(txtmodelo.getText()), 
                Long.parseLong(txtcedula.getText()), 
@@ -221,6 +222,7 @@ ocacionalesModel om=new ocacionalesModel();
         }else{
              JOptionPane.showMessageDialog(this,"VEHICULO OCACIONAL NO AFILIADO");
         }
+        */
     }//GEN-LAST:event_BregistarActionPerformed
 
     private void txtplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtplacaActionPerformed

@@ -1,6 +1,6 @@
 package modelo;
 
-import Emtity.ocacionales;
+import Emtity.vehiculo;
 import java.sql.PreparedStatement;
 
 public class ocacionalesModel {
@@ -12,8 +12,8 @@ public class ocacionalesModel {
         con = new conexiones();
         
     }
-    
-    public boolean registrocacionasles(ocacionales ocacional) {
+    /*
+    public boolean registrocacionasles(vehiculo ocacional) {
         int resultado = 0;
         
         String sql = "INSERT INTO `ocacional`(`placa`, `referencia`, `modelo`, `id_propietario`, `pr_nombre`, `pr_celular`, `aseguradora`) VALUES (?,?,?,?,?,?,?) ";
@@ -33,4 +33,7 @@ public class ocacionalesModel {
         
         return resultado>0;
     }
+*/
+        
 }
+

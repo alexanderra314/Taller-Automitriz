@@ -12,7 +12,7 @@ public class revisionModel {
     public revisionModel() {
         con=new conexiones();
     }
-
+/*
 public boolean registrorevision(revision re){
     int resultado=0;
     String sql="INSERT INTO `revision`(`id_revision`, `fecha`, `placa`, `pr_cedula`, `descripcion`, `estado`, `id_afiliado`) VALUES (null,?,?,?,?,?,?)";
@@ -30,4 +30,5 @@ public boolean registrorevision(revision re){
     }
     return resultado>0;
 }
+*/
 }

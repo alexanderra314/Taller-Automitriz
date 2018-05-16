@@ -158,7 +158,8 @@ public class formularioRevision extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
-        guardarfecha();
+        
+        /*guardarfecha();
         estadorevision();
         revision r=new revision(fecha,
                 txtplaca.getText(),
@@ -170,6 +171,7 @@ public class formularioRevision extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this,"REGISTRO DE REVISION NO EXITOSO");
         }
+        */
         
     }//GEN-LAST:event_registrarActionPerformed
 

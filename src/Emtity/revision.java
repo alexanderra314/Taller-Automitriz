@@ -5,18 +5,14 @@ package Emtity;
 public class revision {
   private int id_revision;
   private String fecha;
-  private String placa;
-  private Long cedula;
+  private String datos_vehiculos;
   private String descripcion;
   private String estado;
 
-    public revision() {
-    }
-
-    public revision(String fecha, String placa, Long cedula, String descripcion, String estado) {
+    public revision(int id_revision, String fecha, String datos_vehiculos, String descripcion, String estado) {
+        this.id_revision = id_revision;
         this.fecha = fecha;
-        this.placa = placa;
-        this.cedula = cedula;
+        this.datos_vehiculos = datos_vehiculos;
         this.descripcion = descripcion;
         this.estado = estado;
     }
@@ -37,20 +33,12 @@ public class revision {
         this.fecha = fecha;
     }
 
-    public String getPlaca() {
-        return placa;
+    public String getDatos_vehiculos() {
+        return datos_vehiculos;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public Long getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(Long cedula) {
-        this.cedula = cedula;
+    public void setDatos_vehiculos(String datos_vehiculos) {
+        this.datos_vehiculos = datos_vehiculos;
     }
 
     public String getDescripcion() {
@@ -68,6 +56,7 @@ public class revision {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
 
   
   
