@@ -18,6 +18,24 @@ public class vehiculo {
         this.aseguradora = aseguradora;
     }
 
+    public vehiculo(String placa, String referencia, String modelo, Long id_propietario, String aseguradora) {
+        this.placa = placa;
+        this.referencia = referencia;
+        this.modelo = modelo;
+        this.id_propietario = id_propietario;
+        this.aseguradora = aseguradora;
+    }
+
+    public vehiculo(String placa, String referencia, String modelo, Long id_propietario, Long afiliacion) {
+        this.placa = placa;
+        this.referencia = referencia;
+        this.modelo = modelo;
+        this.id_propietario = id_propietario;
+        this.afiliacion = afiliacion;
+    }
+
+    
+    
     public vehiculo(Long afiliacion) {
         this.afiliacion = afiliacion;
     }

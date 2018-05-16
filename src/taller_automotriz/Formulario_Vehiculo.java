@@ -3,11 +3,13 @@ package taller_automotriz;
 import Emtity.vehiculo;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.VehiculoMolde;
+import modelo.VehiculoModel;
+
 
 public class Formulario_Vehiculo extends javax.swing.JFrame {
 
-    VehiculoMolde modeloafiliados = new VehiculoMolde();
+    VehiculoModel modeloafiliados = new VehiculoModel();
+    
     DefaultTableModel tabla = new DefaultTableModel();
     String selec;
     vehiculo vaf=new vehiculo();
@@ -245,33 +247,35 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bguardarActionPerformed
-            afiliados++;
-            txtafiliado.setText(Long.toString(afiliados));
+            
+            
         if ("A".equals(selec)) {
             txtasegurdora.setText("");
+            afiliados++;
+            txtafiliado.setText(Long.toString(afiliados));
             vehiculo veh = new vehiculo(txtplaca.getText(),
                     txtmodelo.getText(),
                     txtreferencia.getText(),
                     Long.parseLong(txtcedula.getText()),
-                    Long.parseLong(txtafiliado.getText()),
-                    txtasegurdora.getText());
+                    Long.parseLong(txtafiliado.getText()));
+                //    txtasegurdora.getText());
             if (modeloafiliados.vehiculosafiliados(veh)) {
                 JOptionPane.showMessageDialog(this, "VEHICULO AFILIADO REGSITRADO CON EXITO");
             } else {
-                JOptionPane.showMessageDialog(this, "VEHICULO NO AFILIADO");
+                JOptionPane.showMessageDialog(this, "VEHICULO AFILIADO NO REGISTRADO");
             }
         } else if ("O".equals(selec)) {
-            txtafiliado.setText("");
+          
             vehiculo veh = new vehiculo(txtplaca.getText(),
                     txtmodelo.getText(),
                     txtreferencia.getText(),
                     Long.parseLong(txtcedula.getText()),
-                    Long.parseLong(txtafiliado.getText()),
+                    
                     txtasegurdora.getText());
             if (modeloafiliados.vehiculosocacionales(veh)) {
                 JOptionPane.showMessageDialog(this, "VEHICULO OCACIONAL CON EXITO");
             } else {
-                JOptionPane.showMessageDialog(this, "VEHICULO NO AFILIADO");
+                JOptionPane.showMessageDialog(this, "VEHICULO OCACIONAL NO AFILIADO");
             }
 
         }
@@ -297,16 +301,21 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private void SafiliadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SafiliadosMouseClicked
         txtasegurdora.setEnabled(false);
         txtafiliado.setEnabled(false);
+        modeloafiliados.consultanafiliacion(vaf);
         afiliados=vaf.getAfiliacion();
+        
+        System.out.println("afiliados "+afiliados);
+        txtafiliado.setText(Long.toString(afiliados));
         selec = seleccion.getSelection().getActionCommand();
-        System.out.println(selec);
+       
     }//GEN-LAST:event_SafiliadosMouseClicked
 
     private void SocacionalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SocacionalesMouseClicked
         txtafiliado.setEnabled(false);
         txtasegurdora.setEnabled(true);
+     
         selec = seleccion.getSelection().getActionCommand();
-        System.out.println(selec);
+        
     }//GEN-LAST:event_SocacionalesMouseClicked
 
     private void SafiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SafiliadosActionPerformed

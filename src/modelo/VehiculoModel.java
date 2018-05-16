@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import taller_automotriz.Formulario_Vehiculo;
 
 
-public class VehiculoMolde {
+public class VehiculoModel {
     private final conexiones con;
-    Formulario_Vehiculo fov=new Formulario_Vehiculo();
+    private final long num=0;
+
    
 
-    public VehiculoMolde() {
+    public VehiculoModel() {
         con=new conexiones();
         
     }
@@ -23,7 +23,7 @@ public class VehiculoMolde {
  
     public boolean vehiculosafiliados(vehiculo v){
         int resultado=0;
-        String sql="INSERT INTO `vehiculo`(`placa`, `modelo`, `referencia`, `id_propietario`, `afiliacion`, `aseguradora`) VALUES (?,?,?,?,?,null)";
+        String sql="INSERT INTO `vehiculo`(`placa`, `modelo`, `referencia`, `id_propietario`, `afiliacion` ) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement ps=con.getconnetion().prepareStatement(sql);
             ps.setString(1,v.getPlaca());
@@ -31,10 +31,9 @@ public class VehiculoMolde {
             ps.setString(3,v.getReferencia());
             ps.setLong(4,v.getId_propietario());
             ps.setLong(5,v.getAfiliacion());
-            ps.setString(6,v.getAseguradora());
             resultado=ps.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println("ERROR A EJECUTAR LA SENTENCIA "+ex.getMessage());
+            System.out.println("ERROR A EJECUTAR LA SENTENCIA SQL"+ex.getMessage());
         }
        
         return resultado>0; 
@@ -42,15 +41,14 @@ public class VehiculoMolde {
     
     public boolean vehiculosocacionales(vehiculo ve){
         int resultado=0;
-        String sql="INSERT INTO `vehiculo`(`placa`, `modelo`, `referencia`, `id_propietario`, `afiliacion`, `aseguradora`) VALUES (?,?,?,?,null,?)";
+        String sql="INSERT INTO `vehiculo`(`placa`, `modelo`, `referencia`, `id_propietario`,  `aseguradora`) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement ps=con.getconnetion().prepareStatement(sql);
             ps.setString(1,ve.getPlaca());
             ps.setString(2,ve.getModelo());
             ps.setString(3,ve.getReferencia());
             ps.setLong(4,ve.getId_propietario());
-            ps.setLong(5,ve.getAfiliacion());
-            ps.setString(6,ve.getAseguradora());
+            ps.setString(5,ve.getAseguradora());
             resultado=ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("ERROR A EJECUTAR LA SENTENCIA "+ex.getMessage());
@@ -59,16 +57,17 @@ public class VehiculoMolde {
         return resultado>0; 
     }
     
-    public void consultanafiliacion() {
+    public void consultanafiliacion(vehiculo va) {
         
-       vehiculo veh=new vehiculo();
+     
         try {
             String sql="SELECT max(afiliacion) FROM vehiculo";
             Statement st=con.getconnetion().createStatement();
             ResultSet rst=st.executeQuery(sql);
             while(rst.next()){
-               veh.setAfiliacion(rst.getLong(sql));
-            }
+               va.setAfiliacion(rst.getLong(1));
+               System.out.println("Afiliacion tiene valoñr "+va.getAfiliacion());
+                       }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"NO SE PUDO ENCONTRAR EL NUMUERO DE AFILIACION");
         }
