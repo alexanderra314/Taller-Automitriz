@@ -48,6 +48,12 @@ public class formularioPropietario extends javax.swing.JFrame {
         txtcelular.setText("");
         Bregistar.setEnabled(true);
     }
+    
+    public void limpiardatossinid(){
+        txtnombre.setText("");
+        txtcelular.setText("");
+        Bregistar.setEnabled(true);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -68,6 +74,7 @@ public class formularioPropietario extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         brnv = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -136,12 +143,19 @@ public class formularioPropietario extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabla);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("VEHICULOS REGISTRADOS  AL PROPIETARIO");
+        jLabel1.setText("DATOS DEL PROPIETARIO.");
 
         brnv.setText("NUEVO REGISTRO VEHICULO");
         brnv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brnvActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("MENU PRINCIPAL");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -151,33 +165,32 @@ public class formularioPropietario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtcelular, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel6))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                                            .addComponent(txtnombre)))
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Bbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Bregistar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(brnv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                    .addComponent(txtcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                    .addComponent(txtnombre)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtcelular, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Bbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Bregistar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(brnv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,8 +212,10 @@ public class formularioPropietario extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Bregistar))
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -215,14 +230,14 @@ public class formularioPropietario extends javax.swing.JFrame {
                 txtnombre.getText(),
                 Long.parseLong(txtcelular.getText()));
         if (pom.registropropietraios(pro)) {
-            JOptionPane.showMessageDialog(this, "PROPIETRAIO REGISTRADO CON EXITO \n"
-                    + "PUEDE REGISTRAR  UN NUEVO VEHICULO");
-            brnv.setEnabled(true);
+            JOptionPane.showMessageDialog(this, "PROPIETRAIO REGISTRADO CON EXITO");
+            
+           
 
         } else {
             JOptionPane.showMessageDialog(this, "PROPRIETARIO NO AFILIADO");
         }
-
+        brnv.setEnabled(true);
 
     }//GEN-LAST:event_BregistarActionPerformed
 
@@ -246,19 +261,27 @@ public class formularioPropietario extends javax.swing.JFrame {
         selectpro = pom.busquedapropíetario(p);
 
         if (selectpro == 0) {
-            JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO REGISTRE NUEVO PROPIETRAIO");
-            limpiarcampos();
+            JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO REGISTRE NUEVO PROPIETARIO");
+            limpiardatossinid();
         } else if (selectpro == 1) {
-            JOptionPane.showMessageDialog(this, "USUARIO  ENCONTRADO REGISTRE EL VEHICULO");
+            JOptionPane.showMessageDialog(this, "USUARIO  ENCONTRADO, REGISTRE EL VEHICULO");
             abrirregistrov();
+            Formulario_Vehiculo.txtcedula.setText(cedula.toString());
         }
-        Formulario_Vehiculo.txtcedula.setText(cedula.toString());
+        
 
     }//GEN-LAST:event_BbuscarActionPerformed
 
     private void brnvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnvActionPerformed
         abrirregistrov();
     }//GEN-LAST:event_brnvActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Menu_Principal mp = new Menu_Principal();
+        mp.toFront();
+        mp.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,6 +323,7 @@ public class formularioPropietario extends javax.swing.JFrame {
     private javax.swing.JButton Bbuscar;
     private javax.swing.JButton Bregistar;
     private javax.swing.JButton brnv;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
