@@ -1,21 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package taller_automotriz;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Aloia
- */
+
 public class Menu_Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu_Principal
-     */
     public Menu_Principal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -48,6 +38,11 @@ public class Menu_Principal extends javax.swing.JFrame {
         });
 
         jButton2.setText("REGISTRAR REVISION");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("MOSTRAR RESUMEN");
 
@@ -108,6 +103,13 @@ public class Menu_Principal extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      formularioRevision fr=new formularioRevision();
+      fr.toFront();
+      fr.setVisible(true);
+      this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

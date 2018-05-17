@@ -17,6 +17,15 @@ public class revision {
         this.estado = estado;
     }
 
+    public revision(String fecha, String datos_vehiculos, String descripcion, String estado) {
+        this.fecha = fecha;
+        this.datos_vehiculos = datos_vehiculos;
+        this.descripcion = descripcion;
+        this.estado = estado;
+    }
+    
+    
+
     public int getId_revision() {
         return id_revision;
     }

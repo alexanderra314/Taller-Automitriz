@@ -222,6 +222,11 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Tafiliado);
 
         jButton1.setText("MENU PRINCIPAL");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -325,6 +330,13 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private void SafiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SafiliadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SafiliadosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Menu_Principal mp=new Menu_Principal();
+        mp.toFront();
+        mp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

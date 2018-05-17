@@ -12,23 +12,22 @@ public class revisionModel {
     public revisionModel() {
         con=new conexiones();
     }
-/*
+
 public boolean registrorevision(revision re){
     int resultado=0;
-    String sql="INSERT INTO `revision`(`id_revision`, `fecha`, `placa`, `pr_cedula`, `descripcion`, `estado`, `id_afiliado`) VALUES (null,?,?,?,?,?,?)";
+    String sql="INSERT INTO `revision`(`id_consecutivo`, `fecha`, `datos_vehiculo`, `descripcion`, `estado`) VALUES (NULL,?,?,?,?)";
     try {
         PreparedStatement ps=con.getconnetion().prepareStatement(sql);
+        
         ps.setString(1,re.getFecha());
-        ps.setString(2,re.getPlaca());
-        ps.setLong(3,re.getCedula());
-        ps.setString(4,re.getDescripcion());
-        ps.setString(5,re.getEstado());
-        ps.setInt(6, re.getId_revision());
+        ps.setString(2,re.getDatos_vehiculos());
+        ps.setString(3,re.getDescripcion());
+        ps.setString(4,re.getEstado());
         resultado=ps.executeUpdate();
     } catch (SQLException e) {
         System.out.println(e);
     }
     return resultado>0;
 }
-*/
+
 }
