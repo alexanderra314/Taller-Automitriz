@@ -2,12 +2,21 @@ package Emtity;
 
 public class propietario {
 
-    
-   
     private Long id_propietario;
     private String nombre;
     private Long celular;
 
+    public propietario(Long id_propietario) {
+        this.id_propietario = id_propietario;
+        System.out.println(this.id_propietario);
+    }
+
+    public propietario() {
+    }
+
+    
+    
+    
     public propietario(Long id_propietario, String nombre, Long celular) {
         this.id_propietario = id_propietario;
         this.nombre = nombre;

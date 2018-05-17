@@ -8,6 +8,9 @@ public class vehiculo {
     private Long id_propietario;
     private Long afiliacion;
     private String aseguradora;
+    
+    
+    
 
     public vehiculo(String placa, String referencia, String modelo, Long id_propietario, Long afiliacion, String aseguradora) {
         this.placa = placa;

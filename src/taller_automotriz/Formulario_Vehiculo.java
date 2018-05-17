@@ -1,27 +1,36 @@
 package taller_automotriz;
 
+import Emtity.propietario;
 import Emtity.vehiculo;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.VehiculoModel;
 
-
 public class Formulario_Vehiculo extends javax.swing.JFrame {
 
     VehiculoModel modeloafiliados = new VehiculoModel();
-    
     DefaultTableModel tabla = new DefaultTableModel();
     String selec;
-    vehiculo vaf=new vehiculo();
+    vehiculo vaf = new vehiculo();
     private Long afiliados;
+    
 
     public Formulario_Vehiculo() {
         initComponents();
         setLocationRelativeTo(null);
+        txtcedula.setEditable(false);
+
     }
 
-  
-    
+    public void borrardatos() {
+        txtplaca.setText("");
+        txtmodelo.setText("");
+        txtreferencia.setText("");
+        txtcedula.setText("");
+        txtasegurdora.setText("");
+        seleccion.clearSelection();
+
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -223,32 +232,32 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bguardar)
+                        .addComponent(bguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bguardar)
-                            .addComponent(jButton1))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bguardar)
+                    .addComponent(jButton1))
                 .addGap(0, 14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void bguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bguardarActionPerformed
-            
-            
+
         if ("A".equals(selec)) {
             txtasegurdora.setText("");
             afiliados++;
@@ -258,19 +267,18 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                     txtreferencia.getText(),
                     Long.parseLong(txtcedula.getText()),
                     Long.parseLong(txtafiliado.getText()));
-                //    txtasegurdora.getText());
+           
             if (modeloafiliados.vehiculosafiliados(veh)) {
                 JOptionPane.showMessageDialog(this, "VEHICULO AFILIADO REGSITRADO CON EXITO");
             } else {
                 JOptionPane.showMessageDialog(this, "VEHICULO AFILIADO NO REGISTRADO");
             }
         } else if ("O".equals(selec)) {
-          
+
             vehiculo veh = new vehiculo(txtplaca.getText(),
                     txtmodelo.getText(),
                     txtreferencia.getText(),
                     Long.parseLong(txtcedula.getText()),
-                    
                     txtasegurdora.getText());
             if (modeloafiliados.vehiculosocacionales(veh)) {
                 JOptionPane.showMessageDialog(this, "VEHICULO OCACIONAL CON EXITO");
@@ -279,7 +287,8 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
             }
 
         }
-       
+        borrardatos();
+
     }//GEN-LAST:event_bguardarActionPerformed
 
     private void txtplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtplacaActionPerformed
@@ -302,20 +311,15 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         txtasegurdora.setEnabled(false);
         txtafiliado.setEnabled(false);
         modeloafiliados.consultanafiliacion(vaf);
-        afiliados=vaf.getAfiliacion();
-        
-        System.out.println("afiliados "+afiliados);
+        afiliados = vaf.getAfiliacion();
         txtafiliado.setText(Long.toString(afiliados));
         selec = seleccion.getSelection().getActionCommand();
-       
     }//GEN-LAST:event_SafiliadosMouseClicked
 
     private void SocacionalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SocacionalesMouseClicked
         txtafiliado.setEnabled(false);
         txtasegurdora.setEnabled(true);
-     
         selec = seleccion.getSelection().getActionCommand();
-        
     }//GEN-LAST:event_SocacionalesMouseClicked
 
     private void SafiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SafiliadosActionPerformed
@@ -373,7 +377,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private javax.swing.ButtonGroup seleccion;
     public static javax.swing.JTextField txtafiliado;
     private javax.swing.JTextField txtasegurdora;
-    private javax.swing.JTextField txtcedula;
+    public static javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtmodelo;
     private javax.swing.JTextField txtplaca;
     private javax.swing.JTextField txtreferencia;
