@@ -1,4 +1,4 @@
-package Emtity;
+package Entity;
 
 public class vehiculo {
 
@@ -37,12 +37,19 @@ public class vehiculo {
         this.afiliacion = afiliacion;
     }
 
-    
-    
-    public vehiculo(Long afiliacion) {
-        this.afiliacion = afiliacion;
+    public vehiculo(Long id_propietario) {
+        this.id_propietario = id_propietario;
+       
     }
 
+    public vehiculo(String placa) {
+        this.placa = placa;
+    }
+    
+    
+    
+    
+    
     public vehiculo() {
     }
     

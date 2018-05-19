@@ -1,47 +1,56 @@
 package taller_automotriz;
 
-import Emtity.propietario;
+import Entity.propietario;
+import Entity.vehiculo;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import modelo.PropietarioModel;
 
 public class formularioPropietario extends javax.swing.JFrame {
-
+    
     PropietarioModel pom = new PropietarioModel();
     Long cedula;
     Long selectpro;
-
+    private PropietarioModel modelo;
+    private int id = -1;
+    vehiculo vehic;
+    propietario p;
+    
     public formularioPropietario() {
         initComponents();
         setLocationRelativeTo(null);
         Bregistar.setEnabled(false);
         brnv.setEnabled(false);
-
+        modelo = new PropietarioModel();
+        
     }
-
+    
     public Long getCedula() {
         return cedula;
     }
-
+    
     public void setCedula(Long cedula) {
         this.cedula = cedula;
     }
-
+    
     public static JTextField getTxtcedula() {
         return txtcedula;
     }
-
+    
     public static void setTxtcedula(JTextField txtcedula) {
         formularioPropietario.txtcedula = txtcedula;
     }
-
+    
     public void abrirregistrov() {
         Formulario_Vehiculo frv = new Formulario_Vehiculo();
         frv.toFront();
         frv.setVisible(true);
+        
         this.dispose();
     }
-
+    
     public void limpiarcampos() {
         txtcedula.setText("");
         txtnombre.setText("");
@@ -49,12 +58,28 @@ public class formularioPropietario extends javax.swing.JFrame {
         Bregistar.setEnabled(true);
     }
     
-    public void limpiardatossinid(){
+    public void limpiardatossinid() {
         txtnombre.setText("");
         txtcelular.setText("");
         Bregistar.setEnabled(true);
     }
-
+    
+    private void llenartabla() {
+        DefaultTableModel modelotabla = new DefaultTableModel();
+        modelotabla.addColumn("IDENTIFICACION");
+        modelotabla.addColumn("NOMBRE");
+        modelotabla.addColumn("CELULAR");
+        
+        List<propietario> propietario = modelo.consultarPropietario();
+        for (propietario pro : propietario) {
+            modelotabla.addRow(new String[]{pro.getId_propietario() + "",
+                pro.getNombre(),
+                pro.getCelular() + ""});
+        }
+        
+        tabla.setModel(modelotabla);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -91,7 +116,7 @@ public class formularioPropietario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Bregistar.setText("REGISTRAR");
+        Bregistar.setText("REGISTRAR PROPIETARIO");
         Bregistar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BregistarActionPerformed(evt);
@@ -140,6 +165,11 @@ public class formularioPropietario extends javax.swing.JFrame {
 
             }
         ));
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabla);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -217,23 +247,21 @@ public class formularioPropietario extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BregistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BregistarActionPerformed
-
+        
         propietario pro = new propietario(Long.parseLong(txtcedula.getText()),
                 txtnombre.getText(),
                 Long.parseLong(txtcelular.getText()));
         if (pom.registropropietraios(pro)) {
             JOptionPane.showMessageDialog(this, "PROPIETRAIO REGISTRADO CON EXITO");
             
-           
-
         } else {
             JOptionPane.showMessageDialog(this, "PROPRIETARIO NO AFILIADO");
         }
@@ -256,24 +284,27 @@ public class formularioPropietario extends javax.swing.JFrame {
 
     private void BbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BbuscarActionPerformed
         cedula = Long.parseLong(txtcedula.getText());
-        System.out.println("cedula guardada " + cedula);
-        propietario p = new propietario(cedula);
+        
+        p = new propietario(cedula);
         selectpro = pom.busquedapropíetario(p);
-
         if (selectpro == 0) {
             JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO REGISTRE NUEVO PROPIETARIO");
             limpiardatossinid();
         } else if (selectpro == 1) {
             JOptionPane.showMessageDialog(this, "USUARIO  ENCONTRADO, REGISTRE EL VEHICULO");
-            abrirregistrov();
-            Formulario_Vehiculo.txtcedula.setText(cedula.toString());
+            llenartabla();
+            brnv.setEnabled(true);
+            
         }
         
 
     }//GEN-LAST:event_BbuscarActionPerformed
 
     private void brnvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnvActionPerformed
+        
         abrirregistrov();
+        cedula = Long.parseLong(txtcedula.getText());
+        Formulario_Vehiculo.txtcedula.setText(cedula.toString());
     }//GEN-LAST:event_brnvActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -282,6 +313,15 @@ public class formularioPropietario extends javax.swing.JFrame {
         mp.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        int fila = tabla.getSelectedRow();
+        if (fila >= 0) {
+            txtcedula.setText(tabla.getValueAt(fila, 0).toString());
+            txtnombre.setText(tabla.getValueAt(fila, 1).toString());
+            txtcelular.setText(tabla.getValueAt(fila, 2).toString());
+        }
+    }//GEN-LAST:event_tablaMouseClicked
 
     /**
      * @param args the command line arguments

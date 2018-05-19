@@ -28,7 +28,7 @@ public class conexiones {
         }
     }
 
-    public Connection getconnetion() {
+    public Connection getConnetion() {
         return conexion;
     }
 

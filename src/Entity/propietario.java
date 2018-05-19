@@ -1,4 +1,4 @@
-package Emtity;
+package Entity;
 
 public class propietario {
 

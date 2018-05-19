@@ -1,15 +1,17 @@
 
-package Emtity;
+package Entity;
+
+import java.sql.Timestamp;
 
 
 public class revision {
   private int id_revision;
-  private String fecha;
+  private Timestamp fecha;
   private String datos_vehiculos;
   private String descripcion;
   private String estado;
 
-    public revision(int id_revision, String fecha, String datos_vehiculos, String descripcion, String estado) {
+    public revision(int id_revision, Timestamp fecha, String datos_vehiculos, String descripcion, String estado) {
         this.id_revision = id_revision;
         this.fecha = fecha;
         this.datos_vehiculos = datos_vehiculos;
@@ -17,7 +19,9 @@ public class revision {
         this.estado = estado;
     }
 
-    public revision(String fecha, String datos_vehiculos, String descripcion, String estado) {
+   
+
+    public revision(Timestamp fecha, String datos_vehiculos, String descripcion, String estado) {
         this.fecha = fecha;
         this.datos_vehiculos = datos_vehiculos;
         this.descripcion = descripcion;
@@ -34,13 +38,15 @@ public class revision {
         this.id_revision = id_revision;
     }
 
-    public String getFecha() {
+    public Timestamp getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Timestamp fecha) {
         this.fecha = fecha;
     }
+
+   
 
     public String getDatos_vehiculos() {
         return datos_vehiculos;
