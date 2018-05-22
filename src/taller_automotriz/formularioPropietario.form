@@ -49,7 +49,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane2" pref="504" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="550" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -75,10 +75,10 @@
                       </Group>
                       <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" max="32767" attributes="0"/>
                           <Component id="Bbuscar" max="32767" attributes="0"/>
                           <Component id="Bregistar" max="32767" attributes="0"/>
                           <Component id="brnv" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -112,7 +112,7 @@
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="220" max="32767" attributes="0"/>
@@ -124,7 +124,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="Bregistar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="REGISTRAR PROPIETARIO"/>
+        <Property name="text" type="java.lang.String" value="REGISTRAR NUEVO  PROPIETARIO"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BregistarActionPerformed"/>
@@ -133,7 +133,7 @@
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="REGISTRO PROPIETRAIO VEHICULOS "/>
+        <Property name="text" type="java.lang.String" value="TALLER AUTOMOTRIZ"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -210,18 +210,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="brnv">
       <Properties>
-        <Property name="text" type="java.lang.String" value="NUEVO REGISTRO VEHICULO"/>
+        <Property name="text" type="java.lang.String" value="DATOS DEL VEHICULO"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brnvActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="MENU PRINCIPAL"/>
+        <Property name="text" type="java.lang.String" value="MOSTRAR TODOS LOS PROPIETARIOS"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

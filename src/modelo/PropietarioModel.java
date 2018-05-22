@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import taller_automotriz.formularioPropietario;
 
 public class PropietarioModel {
 
@@ -18,12 +19,33 @@ public class PropietarioModel {
         con = new conexiones();
     }
     
-    public List<propietario> consultarPropietario(){
+    public List<propietario> consultartodosPropietario(){
         List<propietario> lista = new ArrayList<>();
         
         try {
             Statement sentencia = con.getConnetion().createStatement();
             ResultSet rs = sentencia.executeQuery("SELECT * FROM propietario");
+            while (rs.next()){
+                lista.add(new propietario(rs.getLong("id_propietario"),
+                        rs.getString("nombre"),
+                        rs.getLong("celular")));
+                
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println("Error al ejecutar la sentencia SQL \n"+ex.getMessage());
+        }
+        return lista;
+        
+    }
+    
+     public List<propietario> consultarPropietario(){
+        List<propietario> lista = new ArrayList<>();
+        ced=Long.parseLong(formularioPropietario.txtcedula.getText());
+         System.out.println(ced);
+        try {
+            Statement sentencia = con.getConnetion().createStatement();
+            ResultSet rs = sentencia.executeQuery("SELECT * FROM propietario WHERE id_propietario='"+ced+"'");
             while (rs.next()){
                 lista.add(new propietario(rs.getLong("id_propietario"),
                         rs.getString("nombre"),

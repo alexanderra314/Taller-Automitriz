@@ -21,7 +21,6 @@ public class formularioPropietario extends javax.swing.JFrame {
     public formularioPropietario() {
         initComponents();
         setLocationRelativeTo(null);
-        Bregistar.setEnabled(false);
         brnv.setEnabled(false);
         modelo = new PropietarioModel();
         
@@ -80,6 +79,22 @@ public class formularioPropietario extends javax.swing.JFrame {
         tabla.setModel(modelotabla);
     }
     
+    
+     private void llenartablatodos() {
+        DefaultTableModel modelotabla = new DefaultTableModel();
+        modelotabla.addColumn("IDENTIFICACION");
+        modelotabla.addColumn("NOMBRE");
+        modelotabla.addColumn("CELULAR");
+        
+        List<propietario> propietario = modelo.consultartodosPropietario();
+        for (propietario pro : propietario) {
+            modelotabla.addRow(new String[]{pro.getId_propietario() + "",
+                pro.getNombre(),
+                pro.getCelular() + ""});
+        }
+        
+        tabla.setModel(modelotabla);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -99,7 +114,7 @@ public class formularioPropietario extends javax.swing.JFrame {
         tabla = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         brnv = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,7 +131,7 @@ public class formularioPropietario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Bregistar.setText("REGISTRAR PROPIETARIO");
+        Bregistar.setText("REGISTRAR NUEVO  PROPIETARIO");
         Bregistar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BregistarActionPerformed(evt);
@@ -124,7 +139,7 @@ public class formularioPropietario extends javax.swing.JFrame {
         });
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("REGISTRO PROPIETRAIO VEHICULOS ");
+        jLabel8.setText("TALLER AUTOMOTRIZ");
 
         jLabel5.setText("CELULAR:");
 
@@ -175,17 +190,17 @@ public class formularioPropietario extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DATOS DEL PROPIETARIO.");
 
-        brnv.setText("NUEVO REGISTRO VEHICULO");
+        brnv.setText("DATOS DEL VEHICULO");
         brnv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brnvActionPerformed(evt);
             }
         });
 
-        jButton1.setText("MENU PRINCIPAL");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("MOSTRAR TODOS LOS PROPIETARIOS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -196,7 +211,7 @@ public class formularioPropietario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -216,10 +231,10 @@ public class formularioPropietario extends javax.swing.JFrame {
                                     .addComponent(txtcelular, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Bbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Bregistar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(brnv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(brnv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -245,7 +260,7 @@ public class formularioPropietario extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addContainerGap())
@@ -291,10 +306,8 @@ public class formularioPropietario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "USUARIO NO ENCONTRADO REGISTRE NUEVO PROPIETARIO");
             limpiardatossinid();
         } else if (selectpro == 1) {
-            JOptionPane.showMessageDialog(this, "USUARIO  ENCONTRADO, REGISTRE EL VEHICULO");
-            llenartabla();
-            brnv.setEnabled(true);
-            
+            JOptionPane.showMessageDialog(this, "USUARIO  ENCONTRADO");
+            llenartabla();            
         }
         
 
@@ -307,21 +320,20 @@ public class formularioPropietario extends javax.swing.JFrame {
         Formulario_Vehiculo.txtcedula.setText(cedula.toString());
     }//GEN-LAST:event_brnvActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu_Principal mp = new Menu_Principal();
-        mp.toFront();
-        mp.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
         int fila = tabla.getSelectedRow();
+        
         if (fila >= 0) {
             txtcedula.setText(tabla.getValueAt(fila, 0).toString());
             txtnombre.setText(tabla.getValueAt(fila, 1).toString());
             txtcelular.setText(tabla.getValueAt(fila, 2).toString());
+            brnv.setEnabled(true);
         }
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       llenartablatodos();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,7 +375,7 @@ public class formularioPropietario extends javax.swing.JFrame {
     private javax.swing.JButton Bbuscar;
     private javax.swing.JButton Bregistar;
     private javax.swing.JButton brnv;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -10,19 +10,18 @@ import modelo.VehiculoModel;
 public class Formulario_Vehiculo extends javax.swing.JFrame {
 
     VehiculoModel modeloafiliados = new VehiculoModel();
-   
+
     String selec;
     vehiculo vaf = new vehiculo();
     private Long afiliados;
-    
+
     propietario p = new propietario();
-    private  Long cedula;
+    private Long cedula;
 
     public Formulario_Vehiculo() {
         initComponents();
         setLocationRelativeTo(null);
         txtcedula.setEditable(false);
-       
 
     }
 
@@ -37,8 +36,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     }
 
     public void llenartabla() {
-        
-        
+
         DefaultTableModel tablavehiculo = new DefaultTableModel();
         tablavehiculo.addColumn("PLACA");
         tablavehiculo.addColumn("REFERENCIA");
@@ -46,13 +44,13 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         tablavehiculo.addColumn("CEDULA PROPIETARIO");
         tablavehiculo.addColumn("AFILIACION");
         tablavehiculo.addColumn("ASEGURADORA");
-        List<vehiculo> vehicu=modeloafiliados.consultarVehiculo(cedula);
+        List<vehiculo> vehicu = modeloafiliados.consultarVehiculo(cedula);
         for (vehiculo v : vehicu) {
             tablavehiculo.addRow(new String[]{v.getPlaca(),
                 v.getReferencia(),
                 v.getModelo(),
-                v.getId_propietario()+"",
-                v.getAfiliacion()+"",
+                v.getId_propietario() + "",
+                v.getAfiliacion() + "",
                 v.getAseguradora()
             });
         }
@@ -86,6 +84,8 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         tabla_vehiculo = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -248,6 +248,11 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
 
             }
         ));
+        tabla_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_vehiculoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_vehiculo);
 
         jButton1.setText("MENU PRINCIPAL");
@@ -257,10 +262,19 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("CONSULTAR");
+        jButton2.setText("CONSULTAR VEHICULOS REGISTRADOS AL PROPIETARIO");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("ATRAS");
+
+        jButton4.setText("REGISTRAR REVISION");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -270,31 +284,46 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bguardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bguardar)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(0, 14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bguardar)
+                                .addComponent(jButton3))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4)))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
@@ -312,10 +341,10 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                     Long.parseLong(txtcedula.getText()),
                     Long.parseLong(txtafiliado.getText()));
 
-            if (modeloafiliados.vehiculosafiliados(veh)) {
-                JOptionPane.showMessageDialog(this, "VEHICULO AFILIADO REGSITRADO CON EXITO");
+            if (modeloafiliados.vehiculoA(veh)) {
+                JOptionPane.showMessageDialog(this, "VEHICULO REGSITRADO CON EXITO");
             } else {
-                JOptionPane.showMessageDialog(this, "VEHICULO AFILIADO NO REGISTRADO");
+                JOptionPane.showMessageDialog(this, "VEHICULO  NO REGISTRADO");
             }
         } else if ("O".equals(selec)) {
 
@@ -324,7 +353,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                     txtreferencia.getText(),
                     Long.parseLong(txtcedula.getText()),
                     txtasegurdora.getText());
-            if (modeloafiliados.vehiculosocacionales(veh)) {
+            if (modeloafiliados.vehiculosO(veh)) {
                 JOptionPane.showMessageDialog(this, "VEHICULO OCACIONAL CON EXITO");
             } else {
                 JOptionPane.showMessageDialog(this, "VEHICULO OCACIONAL NO AFILIADO");
@@ -332,6 +361,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
 
         }
         borrardatos();
+        llenartabla();
 
     }//GEN-LAST:event_bguardarActionPerformed
 
@@ -371,15 +401,35 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_SafiliadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu_Principal mp = new Menu_Principal();
-        mp.toFront();
-        mp.setVisible(true);
+        formularioPropietario fp = new formularioPropietario();
+        fp.toFront();
+        fp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         llenartabla();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        formularioRevision frv = new formularioRevision();
+        frv.toFront();
+        frv.setVisible(true);
+        formularioRevision.txtplaca.setText(txtplaca.getText());
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tabla_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_vehiculoMouseClicked
+        int fila = tabla_vehiculo.getSelectedRow();
+        if (fila >= 0) {
+            txtplaca.setText(tabla_vehiculo.getValueAt(fila, 0).toString());
+            txtreferencia.setText(tabla_vehiculo.getValueAt(fila, 1).toString());
+            txtmodelo.setText(tabla_vehiculo.getValueAt(fila, 2).toString());
+            txtcedula.setText(tabla_vehiculo.getValueAt(fila, 3).toString());
+
+        }
+    }//GEN-LAST:event_tabla_vehiculoMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -421,6 +471,8 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel j;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

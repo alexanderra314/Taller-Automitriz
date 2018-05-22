@@ -15,17 +15,16 @@ public class formularioRevision extends javax.swing.JFrame {
     revisionModel rm = new revisionModel();
     private String fecha;
     private String estado;
-    private final VehiculoModel vemo=new VehiculoModel();
+    private final VehiculoModel vemo = new VehiculoModel();
     double revision;
-    DefaultTableModel dtm=new DefaultTableModel();
-   
-    
-    
-    
+    private double p;
+    DefaultTableModel dtm = new DefaultTableModel();
+    private double totalpagar;
+
     public formularioRevision() {
         initComponents();
         setLocationRelativeTo(null);
-        
+        txtplaca.setEditable(false);
         llenartabla();
     }
 
@@ -37,7 +36,7 @@ public class formularioRevision extends javax.swing.JFrame {
         String minutos = Integer.toString(Cfecha.getCalendar().get(Calendar.MINUTE));
         String Segundo = Integer.toString(Cfecha.getCalendar().get(Calendar.SECOND));
         fecha = (año + "-" + mes + "-" + dia + " " + hora + ":" + minutos + ":" + Segundo);
-        
+
     }
 
     public String estadorevision() {
@@ -48,28 +47,42 @@ public class formularioRevision extends javax.swing.JFrame {
         }
         return estado;
     }
-    
-    public double valorcandelar(VehiculoModel vh){
-        
-        vehiculo nv=new vehiculo(txtplaca.getText());
-        if(vemo.consultarsiafiliacion(nv)){
-            revision=100;
-        }else{
-            revision=120;
+
+    public double valorcandelar(VehiculoModel vh) {
+        vehiculo nv = new vehiculo(txtplaca.getText());
+        if (vemo.consultarsiesafiliacion(nv) == 0) {
+            revision = 120;
+        } else {
+            revision = 100;
         }
-                return revision;
+        return revision;
     }
-    
-    public void llenartabla(){
+
+    public double porcentaje() {
+        int por = Cestado.getSelectedIndex();
+        if (por == 0) {
+            p = 1;
+            System.out.println(p);
+        } else if (por == 1 && revision == 100) {
+            p = 0.50;
+            System.out.println(p);
+        } else if (por == 1 && revision == 120) {
+            p = 0.60;
+            System.out.println(p);
+        }
+        return p;
+    }
+
+    public void llenartabla() {
         dtm.addColumn("CONSECUTIVO");
         dtm.addColumn("FECHA");
         dtm.addColumn("PLACA");
         dtm.addColumn("DESCRIPCION");
         dtm.addColumn("ESTADO");
-        
-        List<revision> listarevsion=rm.mostrarrevisones();
+
+        List<revision> listarevsion = rm.mostrarrevisones();
         for (revision object : listarevsion) {
-            dtm.addRow(new String [] {object.getId_revision()+"",
+            dtm.addRow(new String[]{object.getId_revision() + "",
                 object.getFecha().toString(),
                 object.getDatos_vehiculos(),
                 object.getDescripcion(),
@@ -77,7 +90,8 @@ public class formularioRevision extends javax.swing.JFrame {
         }
         tablerevision.setModel(dtm);
     }
-    
+
+   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -145,13 +159,13 @@ public class formularioRevision extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addComponent(Cestado, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -168,9 +182,8 @@ public class formularioRevision extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
@@ -247,7 +260,7 @@ public class formularioRevision extends javax.swing.JFrame {
 
         guardarfecha();
         estadorevision();
-        java.sql.Timestamp ts = java.sql.Timestamp.valueOf( fecha ) ;
+        java.sql.Timestamp ts = java.sql.Timestamp.valueOf(fecha);
         revision r = new revision(ts,
                 txtplaca.getText(),
                 txtdescripcion.getText(),
@@ -257,31 +270,45 @@ public class formularioRevision extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "REGISTRO DE REVISION NO EXITOSO");
         }
-
+        llenartabla();
 
     }//GEN-LAST:event_registrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Menu_Principal mp = new Menu_Principal();
-        mp.toFront();
-        mp.setVisible(true);
+        formularioPropietario fp = new formularioPropietario();
+        fp.toFront();
+        fp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         valorcandelar(vemo);
-        System.out.println(revision);
+        porcentaje();
+        totalpagar = revision * p;
+        resumen r = new resumen();
+        r.toFront();
+        r.setVisible(true);
+        int fila = tablerevision.getSelectedRow();
+        if (fila >= 0) {
+            resumen.txtconsecutivo.setText(tablerevision.getValueAt(fila, 0).toString());
+            resumen.txtfecha.setText(tablerevision.getValueAt(fila, 1).toString());
+            resumen.txtplaca.setText(tablerevision.getValueAt(fila, 2).toString());
+            resumen.txtdescripcion.setText(tablerevision.getValueAt(fila, 3).toString());
+            resumen.txtestado.setText(tablerevision.getValueAt(fila, 4).toString());
+            resumen.txtvalor.setText(String.valueOf(totalpagar));
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tablerevisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablerevisionMouseClicked
-        int fila=tablerevision.getSelectedRow();
-        if(fila>=0){
-            String fechain= tablerevision.getValueAt(fila,1).toString();
-            java.sql.Timestamp ts = java.sql.Timestamp.valueOf( fechain ) ;
+        int fila = tablerevision.getSelectedRow();
+        if (fila >= 0) {
+            String fechain = tablerevision.getValueAt(fila, 1).toString();
+            java.sql.Timestamp ts = java.sql.Timestamp.valueOf(fechain);
             Cfecha.setDate(ts);
-            txtplaca.setText(tablerevision.getValueAt(fila,2).toString());
-            txtdescripcion.setText(tablerevision.getValueAt(fila,3).toString());
-            Cestado.setSelectedItem(tablerevision.getValueAt(fila,4).toString());
+            txtplaca.setText(tablerevision.getValueAt(fila, 2).toString());
+            txtdescripcion.setText(tablerevision.getValueAt(fila, 3).toString());
+            Cestado.setSelectedItem(tablerevision.getValueAt(fila, 4).toString());
         }
     }//GEN-LAST:event_tablerevisionMouseClicked
 
@@ -336,6 +363,6 @@ public class formularioRevision extends javax.swing.JFrame {
     private javax.swing.JButton registrar;
     private javax.swing.JTable tablerevision;
     private javax.swing.JTextField txtdescripcion;
-    private javax.swing.JTextField txtplaca;
+    public static javax.swing.JTextField txtplaca;
     // End of variables declaration//GEN-END:variables
 }

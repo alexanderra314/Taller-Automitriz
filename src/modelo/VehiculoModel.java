@@ -9,12 +9,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import taller_automotriz.Formulario_Vehiculo;
+import taller_automotriz.formularioRevision;
 
 public class VehiculoModel {
 
     private final conexiones con;
+    
 
     public VehiculoModel() {
         con = new conexiones();
@@ -23,16 +24,16 @@ public class VehiculoModel {
 
     public List<vehiculo> consultarVehiculo(Long cedula) {
         List<vehiculo> lista = new ArrayList<>();
-       
+        cedula = Long.parseLong(Formulario_Vehiculo.txtcedula.getText());
         System.out.println(cedula);
         try {
             Statement sentencia = con.getConnetion().createStatement();
 
-            ResultSet rs = sentencia.executeQuery("SELECT * FROM vehiculo WHERE id_propiertario='"+cedula+"'");
+            ResultSet rs = sentencia.executeQuery("SELECT * FROM vehiculo WHERE id_propietario='" + cedula + "'");
             while (rs.next()) {
                 lista.add(new vehiculo(rs.getString("placa"),
+                        rs.getString("modelo"),
                         rs.getString("referencia"),
-                        rs.getString("nombreAseguradora"),
                         rs.getLong("id_propietario"),
                         rs.getLong("afiliacion"),
                         rs.getString("aseguradora")));
@@ -46,7 +47,7 @@ public class VehiculoModel {
 
     }
 
-    public boolean vehiculosafiliados(vehiculo v) {
+    public boolean vehiculoA(vehiculo v) {
         int resultado = 0;
         String sql = "INSERT INTO `vehiculo`(`placa`, `modelo`, `referencia`, `id_propietario`, `afiliacion` ) VALUES (?,?,?,?,?)";
         try {
@@ -64,7 +65,7 @@ public class VehiculoModel {
         return resultado > 0;
     }
 
-    public boolean vehiculosocacionales(vehiculo ve) {
+    public boolean vehiculosO(vehiculo ve) {
         int resultado = 0;
         String sql = "INSERT INTO `vehiculo`(`placa`, `modelo`, `referencia`, `id_propietario`,  `aseguradora`) VALUES (?,?,?,?,?)";
         try {
@@ -90,7 +91,7 @@ public class VehiculoModel {
             ResultSet rst = st.executeQuery(sql);
             while (rst.next()) {
                 va.setAfiliacion(rst.getLong(1));
-                System.out.println("Afiliacion tiene valoñr " + va.getAfiliacion());
+                System.out.println("Afiliacion tiene valor " + va.getAfiliacion());
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ENCONTRAR EL NUMUERO DE AFILIACION");
@@ -98,24 +99,32 @@ public class VehiculoModel {
 
     }
 
-    public  boolean consultarsiafiliacion(vehiculo v) {
-        String selecplaca=v.getPlaca();
-        System.out.println(selecplaca);
-        int afiliado = 0;
+    public int consultarsiesafiliacion(vehiculo v) {
 
+        String selecplaca = formularioRevision.txtplaca.getText();
+        System.out.println("es la placa " + selecplaca);
+        int afiliado = 0;
+        int selec=0;
         try {
             Statement sentencia = con.getConnetion().createStatement();
-            ResultSet rs = sentencia.executeQuery("SELECT COUNT (*) FROM vehiculo WHERE placa='"+selecplaca+"'");
+            ResultSet rs = sentencia.executeQuery("SELECT  `afiliacion` FROM `vehiculo` WHERE placa='"+selecplaca+"'");
             while (rs.next()) {
-
                 afiliado = rs.getInt(1);
+                System.out.println(afiliado);
+               if(afiliado==0){
+                   selec=0; 
+               }else{
+                   selec=1;
+               }
+               
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(VehiculoModel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
 
-        return afiliado>0;
+        return selec;
+
     }
 
 }
