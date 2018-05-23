@@ -64,7 +64,6 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
 
         seleccion = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         j = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -79,57 +78,82 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtafiliado = new javax.swing.JTextField();
         txtasegurdora = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         bguardar = new javax.swing.JButton();
+        batras = new javax.swing.JButton();
+        menuprincial = new javax.swing.JButton();
+        registrarrevision = new javax.swing.JButton();
+        bconsultar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_vehiculo = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("PLACA VEHICULO:");
-
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("REFERENCIA:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 78, -1, -1));
 
+        j.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        j.setForeground(new java.awt.Color(153, 0, 0));
         j.setText("MODELO:");
+        jPanel1.add(j, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 116, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setText("CEDULA PROPIETARIO:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("REGISTRO DE VEHICULOS");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 30));
 
+        txtcedula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcedulaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 180, -1));
 
+        txtmodelo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtmodelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtmodeloActionPerformed(evt);
             }
         });
+        jPanel1.add(txtmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 180, -1));
 
+        txtreferencia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtreferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtreferenciaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 180, -1));
 
+        txtplaca.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtplaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtplacaActionPerformed(evt);
             }
         });
+        jPanel1.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 180, -1));
 
         seleccion.add(Safiliados);
+        Safiliados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Safiliados.setForeground(new java.awt.Color(102, 0, 0));
         Safiliados.setText("AFILIADOS ");
         Safiliados.setActionCommand("A");
+        Safiliados.setFocusable(false);
+        Safiliados.setOpaque(false);
         Safiliados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SafiliadosMouseClicked(evt);
@@ -140,105 +164,98 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 SafiliadosActionPerformed(evt);
             }
         });
+        jPanel1.add(Safiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 189, 109, -1));
 
         seleccion.add(Socacionales);
+        Socacionales.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Socacionales.setForeground(new java.awt.Color(153, 0, 0));
         Socacionales.setText("OCACIONALES");
         Socacionales.setActionCommand("O");
+        Socacionales.setFocusable(false);
+        Socacionales.setOpaque(false);
         Socacionales.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SocacionalesMouseClicked(evt);
             }
         });
+        jPanel1.add(Socacionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 189, 140, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("NUMERO AFILIADOS:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 222, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         jLabel5.setText("ASEGURADORA:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 253, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(23, 23, 23))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(j))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtreferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(txtplaca)
-                            .addComponent(txtmodelo, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Safiliados, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Socacionales, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtafiliado)
-                            .addComponent(txtasegurdora))
-                        .addGap(10, 10, 10))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtplaca))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtreferencia))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(j)
-                    .addComponent(txtmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtcedula))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Safiliados)
-                    .addComponent(Socacionales))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtafiliado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtasegurdora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        txtafiliado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(txtafiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 180, -1));
 
+        txtasegurdora.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(txtasegurdora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 180, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel1.setText("PLACA VEHICULO:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        bguardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bguardar.setText("REGISTRAR");
+        bguardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bguardarActionPerformed(evt);
             }
         });
+        jPanel1.add(bguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 270, 30));
+
+        batras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        batras.setText("ATRAS");
+        batras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        batras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(batras, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 270, 30));
+
+        menuprincial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        menuprincial.setText("MENU PRINCIPAL");
+        menuprincial.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        menuprincial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuprincialActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menuprincial, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 270, 30));
+
+        registrarrevision.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        registrarrevision.setText("REGISTRAR REVISION");
+        registrarrevision.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        registrarrevision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarrevisionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(registrarrevision, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 270, 30));
+
+        bconsultar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bconsultar.setText("CONSULTAR VEHICULOS REGISTRADOS AL PROPIETARIO");
+        bconsultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bconsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bconsultarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 420, 30));
+
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/images 5.jpg"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 380, 280));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 830, -1));
 
         tabla_vehiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -255,76 +272,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_vehiculo);
 
-        jButton1.setText("MENU PRINCIPAL");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("CONSULTAR VEHICULOS REGISTRADOS AL PROPIETARIO");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("ATRAS");
-
-        jButton4.setText("REGISTRAR REVISION");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bguardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(bguardar)
-                                .addComponent(jButton3))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 830, 222));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -365,6 +313,56 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bguardarActionPerformed
 
+    private void menuprincialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuprincialActionPerformed
+        formularioPropietario fp = new formularioPropietario();
+        fp.toFront();
+        fp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuprincialActionPerformed
+
+    private void bconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bconsultarActionPerformed
+        llenartabla();
+    }//GEN-LAST:event_bconsultarActionPerformed
+
+    private void registrarrevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarrevisionActionPerformed
+
+        formularioRevision frv = new formularioRevision();
+        frv.toFront();
+        frv.setVisible(true);
+        formularioRevision.txtplaca.setText(txtplaca.getText());
+        this.setVisible(false);
+    }//GEN-LAST:event_registrarrevisionActionPerformed
+
+    private void tabla_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_vehiculoMouseClicked
+        int fila = tabla_vehiculo.getSelectedRow();
+        if (fila >= 0) {
+            txtplaca.setText(tabla_vehiculo.getValueAt(fila, 0).toString());
+            txtreferencia.setText(tabla_vehiculo.getValueAt(fila, 1).toString());
+            txtmodelo.setText(tabla_vehiculo.getValueAt(fila, 2).toString());
+            txtcedula.setText(tabla_vehiculo.getValueAt(fila, 3).toString());
+
+        }
+    }//GEN-LAST:event_tabla_vehiculoMouseClicked
+
+    private void SocacionalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SocacionalesMouseClicked
+        txtafiliado.setEnabled(false);
+        txtasegurdora.setEnabled(true);
+        selec = seleccion.getSelection().getActionCommand();
+    }//GEN-LAST:event_SocacionalesMouseClicked
+
+    private void SafiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SafiliadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SafiliadosActionPerformed
+
+    private void SafiliadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SafiliadosMouseClicked
+        txtasegurdora.setEnabled(false);
+        txtafiliado.setEnabled(false);
+        modeloafiliados.consultanafiliacion(vaf);
+        afiliados = vaf.getAfiliacion();
+        txtafiliado.setText(Long.toString(afiliados));
+        selec = seleccion.getSelection().getActionCommand();
+    }//GEN-LAST:event_SafiliadosMouseClicked
+
     private void txtplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtplacaActionPerformed
         txtreferencia.requestFocus();
     }//GEN-LAST:event_txtplacaActionPerformed
@@ -381,55 +379,12 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtcedulaActionPerformed
 
-    private void SafiliadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SafiliadosMouseClicked
-        txtasegurdora.setEnabled(false);
-        txtafiliado.setEnabled(false);
-        modeloafiliados.consultanafiliacion(vaf);
-        afiliados = vaf.getAfiliacion();
-        txtafiliado.setText(Long.toString(afiliados));
-        selec = seleccion.getSelection().getActionCommand();
-    }//GEN-LAST:event_SafiliadosMouseClicked
-
-    private void SocacionalesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SocacionalesMouseClicked
-        txtafiliado.setEnabled(false);
-        txtasegurdora.setEnabled(true);
-        selec = seleccion.getSelection().getActionCommand();
-    }//GEN-LAST:event_SocacionalesMouseClicked
-
-    private void SafiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SafiliadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SafiliadosActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        formularioPropietario fp = new formularioPropietario();
+    private void batrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batrasActionPerformed
+        formularioPropietario fp=new formularioPropietario();
         fp.toFront();
         fp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        llenartabla();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-        formularioRevision frv = new formularioRevision();
-        frv.toFront();
-        frv.setVisible(true);
-        formularioRevision.txtplaca.setText(txtplaca.getText());
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void tabla_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_vehiculoMouseClicked
-        int fila = tabla_vehiculo.getSelectedRow();
-        if (fila >= 0) {
-            txtplaca.setText(tabla_vehiculo.getValueAt(fila, 0).toString());
-            txtreferencia.setText(tabla_vehiculo.getValueAt(fila, 1).toString());
-            txtmodelo.setText(tabla_vehiculo.getValueAt(fila, 2).toString());
-            txtcedula.setText(tabla_vehiculo.getValueAt(fila, 3).toString());
-
-        }
-    }//GEN-LAST:event_tabla_vehiculoMouseClicked
+    }//GEN-LAST:event_batrasActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -467,23 +422,24 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Safiliados;
     private javax.swing.JRadioButton Socacionales;
+    private javax.swing.JButton batras;
+    private javax.swing.JButton bconsultar;
     private javax.swing.JButton bguardar;
     private javax.swing.JLabel j;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton menuprincial;
+    private javax.swing.JButton registrarrevision;
     private javax.swing.ButtonGroup seleccion;
     private javax.swing.JTable tabla_vehiculo;
-    public static javax.swing.JTextField txtafiliado;
+    private javax.swing.JTextField txtafiliado;
     private javax.swing.JTextField txtasegurdora;
     public static javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtmodelo;
