@@ -84,14 +84,13 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         menuprincial = new javax.swing.JButton();
         registrarrevision = new javax.swing.JButton();
         bconsultar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_vehiculo = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -251,11 +250,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         });
         jPanel1.add(bconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 420, 30));
 
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/images 5.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 380, 280));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 830, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 830, 280));
 
         tabla_vehiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -431,7 +426,6 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -439,7 +433,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JButton registrarrevision;
     private javax.swing.ButtonGroup seleccion;
     private javax.swing.JTable tabla_vehiculo;
-    private javax.swing.JTextField txtafiliado;
+    public static javax.swing.JTextField txtafiliado;
     private javax.swing.JTextField txtasegurdora;
     public static javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtmodelo;
