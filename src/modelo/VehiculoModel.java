@@ -15,7 +15,6 @@ import taller_automotriz.formularioRevision;
 public class VehiculoModel {
 
     private final conexiones con;
-    
 
     public VehiculoModel() {
         con = new conexiones();
@@ -25,7 +24,7 @@ public class VehiculoModel {
     public List<vehiculo> consultarVehiculo(Long cedula) {
         List<vehiculo> lista = new ArrayList<>();
         cedula = Long.parseLong(Formulario_Vehiculo.txtcedula.getText());
-       
+
         try {
             Statement sentencia = con.getConnetion().createStatement();
 
@@ -91,7 +90,7 @@ public class VehiculoModel {
             ResultSet rst = st.executeQuery(sql);
             while (rst.next()) {
                 va.setAfiliacion(rst.getLong(1));
-                
+
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "NO SE PUDO ENCONTRAR EL NUMUERO DE AFILIACION");
@@ -100,22 +99,22 @@ public class VehiculoModel {
     }
 
     public int consultarsiesafiliacion(vehiculo v) {
-        
+
         //String selecplaca = formularioRevision.txtplaca.getText();
         int afiliado = 0;
-        int selec=0;
+        int selec = 0;
         try {
             Statement sentencia = con.getConnetion().createStatement();
-            ResultSet rs = sentencia.executeQuery("SELECT  `afiliacion` FROM `vehiculo` WHERE placa='"+v.getPlaca()+"'");
+            ResultSet rs = sentencia.executeQuery("SELECT  `afiliacion` FROM `vehiculo` WHERE placa='" + v.getPlaca() + "'");
             while (rs.next()) {
                 afiliado = rs.getInt(1);
-                
-               if(afiliado==0){
-                   selec=0; 
-               }else{
-                   selec=1;
-               }
-               
+
+                if (afiliado == 0) {
+                    selec = 0;
+                } else {
+                    selec = 1;
+                }
+
             }
 
         } catch (SQLException ex) {

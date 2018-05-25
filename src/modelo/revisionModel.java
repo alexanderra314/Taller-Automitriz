@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import taller_automotriz.lista_revisiones;
 
 public class revisionModel {
 
@@ -53,6 +54,29 @@ public class revisionModel {
         return listarevision;
     }
     
+    public List<revision> rangofecha(String fecha1, String fecha2){
+          List<revision> listarevision = new ArrayList<>();
+     try {
+            Statement st = con.getConnetion().createStatement();
+            String query = "SELECT * FROM `revision` WHERE fecha BETWEEN '"+fecha1+"' and '"+fecha2+"' ";
+            System.out.println("Sentencia: " + query);
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                listarevision.add(new revision(rs.getInt("id_consecutivo"),
+                        rs.getTimestamp("fecha"),
+                        rs.getString("placa"),
+                        rs.getString("descripcion"),
+                        rs.getString("estado")));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return listarevision;
+    
+        }
+     
+
+ 
     
     
 }

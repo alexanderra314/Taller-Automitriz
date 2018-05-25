@@ -29,7 +29,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
         txtplaca.setText("");
         txtmodelo.setText("");
         txtreferencia.setText("");
-        txtcedula.setText("");
+        // txtcedula.setText("");
         txtasegurdora.setText("");
         seleccion.clearSelection();
 
@@ -63,88 +63,116 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private void initComponents() {
 
         seleccion = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        j = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtcedula = new javax.swing.JTextField();
-        txtmodelo = new javax.swing.JTextField();
-        txtreferencia = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_vehiculo = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         txtplaca = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtreferencia = new javax.swing.JTextField();
+        j = new javax.swing.JLabel();
+        txtmodelo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtcedula = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         Safiliados = new javax.swing.JRadioButton();
         Socacionales = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtafiliado = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         txtasegurdora = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         bguardar = new javax.swing.JButton();
         batras = new javax.swing.JButton();
         menuprincial = new javax.swing.JButton();
         registrarrevision = new javax.swing.JButton();
         bconsultar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_vehiculo = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tabla_vehiculo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel2.setText("REFERENCIA:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 78, -1, -1));
+            },
+            new String [] {
 
-        j.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        j.setForeground(new java.awt.Color(153, 0, 0));
-        j.setText("MODELO:");
-        jPanel1.add(j, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 116, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel4.setText("CEDULA PROPIETARIO:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 154, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("REGISTRO DE VEHICULOS");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 30));
-
-        txtcedula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtcedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcedulaActionPerformed(evt);
+            }
+        ));
+        tabla_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_vehiculoMouseClicked(evt);
             }
         });
-        jPanel1.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 180, -1));
+        jScrollPane1.setViewportView(tabla_vehiculo);
 
-        txtmodelo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtmodelo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtmodeloActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 180, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 830, 222));
 
-        txtreferencia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtreferencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtreferenciaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 180, -1));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtplaca.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/descarga 3.jpg"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 280, 190));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel1.setText("PLACA VEHICULO:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        txtplaca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtplaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtplacaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 180, -1));
+        jPanel2.add(txtplaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 180, 20));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel2.setText("REFERENCIA:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        txtreferencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtreferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtreferenciaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtreferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 180, 20));
+
+        j.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        j.setForeground(new java.awt.Color(153, 0, 0));
+        j.setText("MODELO:");
+        jPanel2.add(j, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        txtmodelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtmodelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmodeloActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 86, 180, 20));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel4.setText("CEDULA PROPIETARIO:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        txtcedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtcedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcedulaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 126, 130, 20));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("REGISTRO DE VEHICULOS");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 320, 30));
 
         seleccion.add(Safiliados);
         Safiliados.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -163,7 +191,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 SafiliadosActionPerformed(evt);
             }
         });
-        jPanel1.add(Safiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 189, 109, -1));
+        jPanel2.add(Safiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         seleccion.add(Socacionales);
         Socacionales.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -177,28 +205,23 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 SocacionalesMouseClicked(evt);
             }
         });
-        jPanel1.add(Socacionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 189, 140, -1));
+        jPanel2.add(Socacionales, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 140, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("NUMERO AFILIADOS:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 222, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        txtafiliado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtafiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 206, 130, 20));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         jLabel5.setText("ASEGURADORA:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 253, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
-        txtafiliado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(txtafiliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 180, -1));
-
-        txtasegurdora.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(txtasegurdora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 180, -1));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel1.setText("PLACA VEHICULO:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        txtasegurdora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtasegurdora, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 236, 130, 20));
 
         bguardar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bguardar.setText("REGISTRAR");
@@ -208,7 +231,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 bguardarActionPerformed(evt);
             }
         });
-        jPanel1.add(bguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 270, 30));
+        jPanel2.add(bguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 190, 30));
 
         batras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         batras.setText("ATRAS");
@@ -218,7 +241,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 batrasActionPerformed(evt);
             }
         });
-        jPanel1.add(batras, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 270, 30));
+        jPanel2.add(batras, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 190, 30));
 
         menuprincial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         menuprincial.setText("MENU PRINCIPAL");
@@ -228,7 +251,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 menuprincialActionPerformed(evt);
             }
         });
-        jPanel1.add(menuprincial, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 270, 30));
+        jPanel2.add(menuprincial, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 190, 30));
 
         registrarrevision.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         registrarrevision.setText("REGISTRAR REVISION");
@@ -238,7 +261,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 registrarrevisionActionPerformed(evt);
             }
         });
-        jPanel1.add(registrarrevision, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 270, 30));
+        jPanel2.add(registrarrevision, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 161, 190, 30));
 
         bconsultar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bconsultar.setText("CONSULTAR VEHICULOS REGISTRADOS AL PROPIETARIO");
@@ -248,26 +271,9 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
                 bconsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(bconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 420, 30));
+        jPanel2.add(bconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 430, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 830, 280));
-
-        tabla_vehiculo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        tabla_vehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabla_vehiculoMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabla_vehiculo);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 830, 222));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 280));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -286,6 +292,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
 
             if (modeloafiliados.vehiculoA(veh)) {
                 JOptionPane.showMessageDialog(this, "VEHICULO REGSITRADO CON EXITO");
+
             } else {
                 JOptionPane.showMessageDialog(this, "VEHICULO  NO REGISTRADO");
             }
@@ -303,8 +310,9 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
             }
 
         }
-        borrardatos();
         llenartabla();
+        borrardatos();
+
 
     }//GEN-LAST:event_bguardarActionPerformed
 
@@ -320,12 +328,16 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_bconsultarActionPerformed
 
     private void registrarrevisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarrevisionActionPerformed
+        if ("".equals(txtplaca.getText())) {
+               JOptionPane.showMessageDialog(this,"PLACA DE VEHICULO NO SUMINTRADA");
+        } else {
+            formularioRevision frv = new formularioRevision();
+            frv.toFront();
+            frv.setVisible(true);
+            formularioRevision.txtplaca.setText(txtplaca.getText());
+            this.setVisible(false);
+        }
 
-        formularioRevision frv = new formularioRevision();
-        frv.toFront();
-        frv.setVisible(true);
-        formularioRevision.txtplaca.setText(txtplaca.getText());
-        this.setVisible(false);
     }//GEN-LAST:event_registrarrevisionActionPerformed
 
     private void tabla_vehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_vehiculoMouseClicked
@@ -375,7 +387,7 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcedulaActionPerformed
 
     private void batrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batrasActionPerformed
-        formularioPropietario fp=new formularioPropietario();
+        formularioPropietario fp = new formularioPropietario();
         fp.toFront();
         fp.setVisible(true);
         this.setVisible(false);
@@ -426,8 +438,9 @@ public class Formulario_Vehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton menuprincial;
     private javax.swing.JButton registrarrevision;
