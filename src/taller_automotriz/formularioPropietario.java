@@ -292,7 +292,7 @@ public class formularioPropietario extends javax.swing.JFrame {
     private void BbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BbuscarActionPerformed
 
         if (txtcedula.getText() == "") {
-            JOptionPane.showMessageDialog(this,"NUMERO DE CEDULA NO SUMINTRADA");
+            JOptionPane.showMessageDialog(this, "NUMERO DE CEDULA NO SUMINTRADA");
         } else {
             cedula = Long.parseLong(txtcedula.getText());
             p = new propietario(cedula);

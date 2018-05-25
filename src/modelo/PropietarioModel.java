@@ -100,8 +100,18 @@ public class PropietarioModel {
     }
 
    
-  //  public List<vehiculo> mostrarvehiculo(){
-        
- //   }
-     
+//  public boolean actualizarpropietraio(propietario p2){
+//       int resultado=0;
+//       long id=Long.parseLong(formularioPropietario.txtcedula.getText());
+//       String sql="UPDATE `propietario` SET `nombre`=?,`celular`=? WHERE  `id_propietario`='"+id+"'";
+//        try {
+//            PreparedStatement ps=con.getConnetion().prepareStatement(sql);
+//            ps.setString(1,p2.getNombre());
+//            ps.setLong(2,p2.getCelular());
+//            resultado=ps.executeUpdate();
+//        } catch (SQLException ex) {
+//           
+//        }
+//        return resultado>0;
+//   }
     }

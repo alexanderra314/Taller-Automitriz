@@ -23,6 +23,13 @@ public class propietario {
         this.celular = celular;
     }
 
+    public propietario(String nombre, Long celular) {
+        this.nombre = nombre;
+        this.celular = celular;
+    }
+
+   
+
     public Long getId_propietario() {
         return id_propietario;
     }
