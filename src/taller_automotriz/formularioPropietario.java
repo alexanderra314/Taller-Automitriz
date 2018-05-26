@@ -144,7 +144,7 @@ public class formularioPropietario extends javax.swing.JFrame {
                 BregistarActionPerformed(evt);
             }
         });
-        getContentPane().add(Bregistar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 210, 30));
+        getContentPane().add(Bregistar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 210, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 0, 0));
@@ -195,7 +195,7 @@ public class formularioPropietario extends javax.swing.JFrame {
                 BbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(Bbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, 30));
+        getContentPane().add(Bbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 90, 30));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -212,13 +212,13 @@ public class formularioPropietario extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 580, 200));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 570, 200));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DATOS DEL PROPIETARIO.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 229, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 229, 30));
 
         brnv.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         brnv.setText("DATOS DEL VEHICULO");
@@ -227,7 +227,7 @@ public class formularioPropietario extends javax.swing.JFrame {
                 brnvActionPerformed(evt);
             }
         });
-        getContentPane().add(brnv, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 180, 30));
+        getContentPane().add(brnv, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 180, 30));
 
         fondo.setBackground(new java.awt.Color(0, 0, 0));
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/descarga 2.jpg"))); // NOI18N
@@ -244,7 +244,7 @@ public class formularioPropietario extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 270, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 270, 30));
 
         jButton1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jButton1.setText("SALIR");
@@ -253,7 +253,7 @@ public class formularioPropietario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 80, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 80, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/images 4.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 4, 300, 200));
